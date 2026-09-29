@@ -1,8 +1,10 @@
 import Avatar from './avatar';
 import LikeButton from './like-button';
+import Mensagem from './mensagem';
 
 export default function HortaCard({ horta, usuario }) {
   const alimentos = horta.alimentos.split(',').map((alimento) => alimento.trim());
+  const minhaHorta = usuario?.id === horta.usuario_id;
 
   return (
     <article className="card">
@@ -26,6 +28,8 @@ export default function HortaCard({ horta, usuario }) {
         <div className="acoes">
           <LikeButton horta={horta} logado={Boolean(usuario)} />
         </div>
+        {usuario && !minhaHorta && <Mensagem horta={horta} />}
+        {minhaHorta && <p className="epoca">⭐ Esta é a sua horta</p>}
       </div>
     </article>
   );

@@ -42,6 +42,17 @@ await sql`
     primary key (usuario_id, horta_id)
   )
 `;
+await sql`
+  create table if not exists mensagens (
+    id serial primary key,
+    horta_id integer not null references hortas(id) on delete cascade,
+    remetente_id integer not null references usuarios(id) on delete cascade,
+    texto text not null,
+    data_retirada date not null,
+    confirmada boolean not null default false,
+    criado_em timestamptz not null default now()
+  )
+`;
 
 console.log('Tabelas prontas');
 await sql.end();

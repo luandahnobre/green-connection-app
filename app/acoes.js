@@ -125,3 +125,32 @@ export async function curtir(hortaId) {
   }
   revalidatePath('/');
 }
+
+export async function enviarMensagem(formData) {
+  const usuario = await usuarioLogado();
+  if (!usuario) redirect('/login');
+
+  await sql`
+    insert into mensagens (horta_id, remetente_id, texto, data_retirada)
+    values (
+      ${formData.get('horta_id')},
+      ${usuario.id},
+      ${formData.get('texto').trim()},
+      ${formData.get('data_retirada')}
+    )
+  `;
+  redirect('/perfil');
+}
+
+// Só o dono da horta pode aceitar o pedido
+export async function aceitarPedido(mensagemId) {
+  const usuario = await usuarioLogado();
+  if (!usuario) redirect('/login');
+
+  await sql`
+    update mensagens set confirmada = true
+    where id = ${mensagemId}
+      and horta_id in (select id from hortas where usuario_id = ${usuario.id})
+  `;
+  revalidatePath('/perfil');
+}
