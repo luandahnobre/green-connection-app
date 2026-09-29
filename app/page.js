@@ -9,7 +9,12 @@ export default async function HomePage() {
     select
       hortas.*,
       usuarios.nome as dono_nome,
-      usuarios.foto_url as dono_foto
+      usuarios.foto_url as dono_foto,
+      (select count(*)::int from curtidas where curtidas.horta_id = hortas.id) as curtidas,
+      exists (
+        select 1 from curtidas
+        where curtidas.horta_id = hortas.id and curtidas.usuario_id = ${usuario?.id ?? 0}
+      ) as curtiu
     from hortas
     join usuarios on usuarios.id = hortas.usuario_id
     order by hortas.criado_em desc
@@ -31,7 +36,7 @@ export default async function HomePage() {
       {hortas.length === 0 && <p>Nenhuma horta cadastrada ainda. Que tal ser a primeira?</p>}
 
       {hortas.map((horta) => (
-        <HortaCard key={horta.id} horta={horta} />
+        <HortaCard key={horta.id} horta={horta} usuario={usuario} />
       ))}
     </section>
   );

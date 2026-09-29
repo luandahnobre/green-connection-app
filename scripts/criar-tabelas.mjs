@@ -35,6 +35,13 @@ await sql`
     criado_em timestamptz not null default now()
   )
 `;
+await sql`
+  create table if not exists curtidas (
+    usuario_id integer not null references usuarios(id) on delete cascade,
+    horta_id integer not null references hortas(id) on delete cascade,
+    primary key (usuario_id, horta_id)
+  )
+`;
 
 console.log('Tabelas prontas');
 await sql.end();

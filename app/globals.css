@@ -120,12 +120,24 @@ a.botao {
   color: #5b6b5b;
 }
 
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 .botao {
   border: 1px solid #2e7d32;
   border-radius: 8px;
   padding: 8px 12px;
   font-size: 0.95rem;
   cursor: pointer;
+}
+
+.botao-like {
+  background: #fff;
+  color: #2e7d32;
 }
 
 .botao-msg {

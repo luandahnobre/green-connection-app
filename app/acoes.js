@@ -3,6 +3,7 @@
 import bcrypt from 'bcryptjs';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 import sql from '../lib/db';
 import { usuarioLogado } from '../lib/sessao';
 
@@ -107,4 +108,20 @@ export async function criarHorta(formData) {
     )
   `;
   redirect('/');
+}
+
+// Curte a horta; se já tinha curtido, descurte
+export async function curtir(hortaId) {
+  const usuario = await usuarioLogado();
+  if (!usuario) redirect('/login');
+
+  const removidas = await sql`
+    delete from curtidas
+    where usuario_id = ${usuario.id} and horta_id = ${hortaId}
+    returning horta_id
+  `;
+  if (removidas.length === 0) {
+    await sql`insert into curtidas (usuario_id, horta_id) values (${usuario.id}, ${hortaId})`;
+  }
+  revalidatePath('/');
 }

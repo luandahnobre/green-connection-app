@@ -1,6 +1,7 @@
 import Avatar from './avatar';
+import LikeButton from './like-button';
 
-export default function HortaCard({ horta }) {
+export default function HortaCard({ horta, usuario }) {
   const alimentos = horta.alimentos.split(',').map((alimento) => alimento.trim());
 
   return (
@@ -22,6 +23,9 @@ export default function HortaCard({ horta }) {
           ))}
         </ul>
         {horta.epoca && <p className="epoca">🗓️ {horta.epoca}</p>}
+        <div className="acoes">
+          <LikeButton horta={horta} logado={Boolean(usuario)} />
+        </div>
       </div>
     </article>
   );
