@@ -307,6 +307,12 @@ a.botao {
   color: #2e7d32;
 }
 
+.botao-apagar {
+  background: #fff;
+  color: #b3261e;
+  border-color: #b3261e;
+}
+
 .chat {
   display: flex;
   flex-direction: column;

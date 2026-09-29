@@ -1,6 +1,7 @@
 'use server';
 
 import bcrypt from 'bcryptjs';
+import { del } from '@vercel/blob';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
@@ -108,6 +109,28 @@ export async function criarHorta(formData) {
     )
   `;
   redirect('/');
+}
+
+// Só o dono pode apagar. Curtidas e mensagens da horta são apagadas junto
+export async function apagarHorta(hortaId) {
+  const usuario = await usuarioLogado();
+  if (!usuario) redirect('/login');
+
+  const [horta] = await sql`
+    delete from hortas
+    where id = ${hortaId} and usuario_id = ${usuario.id}
+    returning foto_url
+  `;
+
+  // Apaga também a foto guardada no Vercel Blob
+  if (horta?.foto_url) {
+    try {
+      await del(horta.foto_url);
+    } catch {
+      // se a foto não puder ser apagada, a horta já saiu do site mesmo assim
+    }
+  }
+  revalidatePath('/');
 }
 
 // Curte a horta; se já tinha curtido, descurte

@@ -1,4 +1,6 @@
+import { apagarHorta } from './acoes';
 import Avatar from './avatar';
+import BotaoApagar from './botao-apagar';
 import LikeButton from './like-button';
 import Mensagem from './mensagem';
 
@@ -27,6 +29,7 @@ export default function HortaCard({ horta, usuario }) {
         {horta.epoca && <p className="epoca">🗓️ {horta.epoca}</p>}
         <div className="acoes">
           <LikeButton horta={horta} logado={Boolean(usuario)} />
+          {minhaHorta && <BotaoApagar acao={apagarHorta.bind(null, horta.id)} />}
         </div>
         {usuario && !minhaHorta && <Mensagem horta={horta} />}
         {minhaHorta && <p className="epoca">⭐ Esta é a sua horta</p>}
