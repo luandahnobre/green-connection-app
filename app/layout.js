@@ -1,15 +1,22 @@
 import Link from 'next/link';
 import './globals.css';
+import RegistrarSW from './registrar-sw';
 
 export const metadata = {
   title: 'Conexão Verde',
   description: 'Troca e doação de alimentos de hortas comunitárias',
+  icons: { apple: '/icone-192.png' },
+};
+
+export const viewport = {
+  themeColor: '#2e7d32',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body>
+        <RegistrarSW />
         <header className="topo">
           <Link href="/">
             <h1>
