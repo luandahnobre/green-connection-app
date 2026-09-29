@@ -89,3 +89,22 @@ export async function salvarFotoPerfil(formData) {
   }
   redirect('/');
 }
+
+export async function criarHorta(formData) {
+  const usuario = await usuarioLogado();
+  if (!usuario) redirect('/login');
+
+  const fotoUrl = formData.get('foto_url');
+  await sql`
+    insert into hortas (usuario_id, nome, bairro, alimentos, epoca, foto_url)
+    values (
+      ${usuario.id},
+      ${formData.get('nome').trim()},
+      ${formData.get('bairro').trim()},
+      ${formData.get('alimentos').trim()},
+      ${formData.get('epoca').trim()},
+      ${fotoValida(fotoUrl) ? fotoUrl : null}
+    )
+  `;
+  redirect('/');
+}

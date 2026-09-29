@@ -23,6 +23,18 @@ await sql`
     usuario_id integer not null references usuarios(id) on delete cascade
   )
 `;
+await sql`
+  create table if not exists hortas (
+    id serial primary key,
+    usuario_id integer not null references usuarios(id) on delete cascade,
+    nome text not null,
+    bairro text not null,
+    alimentos text not null,
+    epoca text,
+    foto_url text,
+    criado_em timestamptz not null default now()
+  )
+`;
 
 console.log('Tabelas prontas');
 await sql.end();

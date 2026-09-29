@@ -1,0 +1,28 @@
+import Avatar from './avatar';
+
+export default function HortaCard({ horta }) {
+  const alimentos = horta.alimentos.split(',').map((alimento) => alimento.trim());
+
+  return (
+    <article className="card">
+      {horta.foto_url ? (
+        <img src={horta.foto_url} alt={horta.nome} className="card-foto" />
+      ) : (
+        <div className="card-foto card-sem-foto">🌱</div>
+      )}
+      <div className="card-corpo">
+        <h3>{horta.nome}</h3>
+        <p className="card-info dono">
+          <Avatar usuario={{ nome: horta.dono_nome, foto_url: horta.dono_foto }} />
+          {horta.dono_nome} · {horta.bairro}
+        </p>
+        <ul className="tags">
+          {alimentos.map((alimento) => (
+            <li key={alimento}>{alimento}</li>
+          ))}
+        </ul>
+        {horta.epoca && <p className="epoca">🗓️ {horta.epoca}</p>}
+      </div>
+    </article>
+  );
+}

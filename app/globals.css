@@ -37,6 +37,89 @@ main {
   padding: 16px;
 }
 
+.card {
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin: 0;
+}
+
+.card-foto {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-sem-foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  background: #e3f2e1;
+}
+
+.card-corpo {
+  padding: 16px;
+}
+
+.card-info {
+  margin: 4px 0;
+  color: #5b6b5b;
+}
+
+.dono {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.titulo-lista {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.titulo-lista h2 {
+  margin: 0;
+}
+
+a.botao {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+
+.tags li {
+  background: #e3f2e1;
+  color: #2e7d32;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.85rem;
+}
+
+.epoca {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #5b6b5b;
+}
+
 .botao {
   border: 1px solid #2e7d32;
   border-radius: 8px;
