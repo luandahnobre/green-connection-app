@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f3f8f1;
+  color: #1f2d1f;
+}
+
+.topo {
+  background: #fff;
+  color: #1f2d1f;
+  border-bottom: 4px solid #2e7d32;
+  padding: 16px;
+  text-align: center;
+}
+
+.topo h1 {
+  margin: 0;
+  line-height: 0;
+}
+
+.logo {
+  width: 160px;
+  height: 160px;
+}
+
+.topo p {
+  margin: 4px 0 0;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254" role="img" aria-label="Conexão Verde, logo com sol, folhas, frutas e mãos">
+<defs>
+ <linearGradient id="leaf" x2=".8" y2="1"><stop stop-color="#7cac31"/><stop offset=".55" stop-color="#347b36"/><stop offset="1" stop-color="#154b35"/></linearGradient>
+ <linearGradient id="sun" x2="0" y2="1"><stop stop-color="#f49b12"/><stop offset="1" stop-color="#ffd966"/></linearGradient>
+ <linearGradient id="hand" x2=".8" y2="1"><stop stop-color="#f6b16a"/><stop offset=".55" stop-color="#c97539"/><stop offset="1" stop-color="#854527"/></linearGradient>
+ <linearGradient id="gold" x2=".2" y2="1"><stop stop-color="#ffe158"/><stop offset="1" stop-color="#dc8106"/></linearGradient>
+ <linearGradient id="word" x2="0" y2="1"><stop stop-color="#397f3b"/><stop offset="1" stop-color="#184931"/></linearGradient>
+ <g id="sprig"><path d="M0 0 Q35-113 100-204" fill="none" stroke="#174c32" stroke-width="11"/><path d="M36-95 Q-14-166 50-254 Q102-194 36-95Z" fill="url(#leaf)" stroke="#a7bd61" stroke-width="2"/><path d="M59-136 Q82-229 175-244 Q160-172 59-136Z" fill="url(#leaf)" stroke="#a7bd61" stroke-width="2"/><path d="M17-40 Q45-126 157-146 Q123-68 17-40Z" fill="url(#leaf)" stroke="#a7bd61" stroke-width="2"/><path d="M36-95Q49-162 50-254M59-136Q110-183 175-244M17-40Q76-98 157-146" fill="none" stroke="#13482d" stroke-width="3" opacity=".55"/></g>
+ <g id="smallleaf"><path d="M0 0Q44-83 143-82Q116 0 0 0Z" fill="url(#leaf)"/><path d="M0 0Q72-52 143-82" fill="none" stroke="#a3c164" stroke-width="3"/></g>
+</defs>
+<g stroke-linejoin="round" stroke-linecap="round">
+ <!-- circular foliage and sunrise -->
+ <path d="M140 500Q179 341 279 280Q231 382 140 500ZM476 225Q605 99 811 172Q624 138 476 225ZM847 186Q1009 245 1079 421Q1035 309 847 186Z" fill="url(#leaf)"/>
+ <use href="#sprig" transform="translate(285 374)"/>
+ <path d="M510 311A146 146 0 0 1 802 336Q665 298 510 311Z" fill="url(#sun)"/>
+ <path d="M392 355Q548 285 683 394Q556 368 392 355Z" fill="#438047"/>
+ <path d="M522 319Q645 310 804 387L711 388Q623 335 522 319Z" fill="#a5a43d"/>
+ <path d="M752 347Q825 341 882 386H806Z" fill="#f0a71c"/>
+ <path d="M817 229q15-11 25 7q9-17 26-11" fill="none" stroke="#397a39" stroke-width="6"/>
+ <path d="M877 385V257q0-20 14-20t14 20v89q22-3 22-27v-20q0-15 11-15t11 15v20q0 40-44 45v21" fill="#397a39" stroke="#143d29" stroke-width="5"/>
+ <path d="M281 376Q257 275 350 141Q411 236 281 376Z" fill="url(#leaf)" stroke="#174b30" stroke-width="3"/>
+<path d="M323 346Q355 247 480 254Q419 332 323 346Z" fill="url(#leaf)" stroke="#174b30" stroke-width="3"/>
+<path d="M357 233Q362 149 506 137Q474 213 357 233Z" fill="url(#leaf)" stroke="#174b30" stroke-width="3"/>
+<path d="M281 376Q344 262 350 141M323 346Q397 279 480 254" fill="none" stroke="#b2c56d" stroke-width="3" opacity=".65"/>
+<path d="M247 743Q292 678 404 715Q328 764 247 743ZM957 722Q1012 649 1114 646Q1070 728 957 722Z" fill="url(#leaf)"/>
+<path d="M212 825Q174 779 147 695Q214 732 225 815ZM1025 822Q1049 727 1118 682Q1102 790 1025 822Z" fill="url(#leaf)"/>
+ <!-- wordmark -->
+ <text x="621" y="566" text-anchor="middle" font-family="DejaVu Sans" font-weight="900" font-size="139" letter-spacing="-10" fill="url(#word)" stroke="#143c29" stroke-width="2" paint-order="stroke">CONEXÃO</text>
+ <text x="636" y="734" text-anchor="middle" font-family="DejaVu Sans" font-weight="900" font-size="170" letter-spacing="-8" fill="url(#leaf)" stroke="#143c29" stroke-width="2" paint-order="stroke">VERDE</text>
+ <use href="#smallleaf" transform="translate(255 752) rotate(-21) scale(.9)"/>
+ <use href="#smallleaf" transform="translate(962 730) rotate(-7) scale(1.07)"/>
+ <use href="#smallleaf" transform="translate(201 847) rotate(-104) scale(.98)"/>
+ <use href="#smallleaf" transform="translate(1038 847) rotate(-80) scale(.98)"/>
+ <!-- rear foliage -->
+ <use href="#smallleaf" transform="translate(423 945) rotate(-113) scale(1.35)"/>
+ <use href="#smallleaf" transform="translate(546 928) rotate(-67) scale(1.22)"/>
+ <use href="#smallleaf" transform="translate(658 940) rotate(-103) scale(1.25)"/>
+ <use href="#smallleaf" transform="translate(777 936) rotate(-67) scale(1.18)"/>
+ <use href="#smallleaf" transform="translate(857 981) rotate(-39) scale(1.08)"/>
+ <!-- pineapple -->
+ <path d="M785 831q-16-54-51-78q39 8 59 42q-7-50 17-73q15 37 3 68q23-46 65-48q-30 29-44 75q30-37 69-27q-31 17-47 51Z" fill="url(#leaf)" stroke="#194f30" stroke-width="5"/>
+ <ellipse cx="794" cy="898" rx="85" ry="98" fill="url(#gold)" stroke="#915317" stroke-width="6"/>
+ <path d="M734 835l113 119M714 872l112 110M752 814l111 107M849 825L730 954M869 852L757 976M866 901L798 988" stroke="#c17916" stroke-width="10" opacity=".7" fill="none"/>
+ <!-- pepper, custard apple, berries, bananas, coconut -->
+ <path d="M298 866q2-57 54-72q34-14 68 13q45 2 63 67q9 71-70 100q-73 24-113-38q-22-32-2-70Z" fill="url(#gold)" stroke="#a55514" stroke-width="7"/>
+ <path d="M312 853q49-66 100 2M321 925q40 36 92 20" fill="none" stroke="#ffe164" stroke-width="16" opacity=".5"/>
+ <path d="M327 811q-5-37 25-46q-7 30 15 37" fill="#427438" stroke="#29482c" stroke-width="5"/>
+ <ellipse cx="556" cy="904" rx="83" ry="94" fill="#80a938" stroke="#427534" stroke-width="7"/>
+ <path d="M512 849l8 11m48-25l-7 11m35 19l-8 9m-76 25l-9 9m52-24l-8 8m47 26l-8 10m-76 20l-8 8m51 4l-9 8" stroke="#49652b" stroke-width="8"/>
+ <ellipse cx="648" cy="895" rx="37" ry="66" transform="rotate(-20 648 895)" fill="#bd3f47" stroke="#803534" stroke-width="5"/>
+ <path d="M641 847l4 5m15 16l3 5m-27 12l3 6m23 7l3 5m-22 15l3 5" stroke="#512f30" stroke-width="7"/>
+ <path d="M611 936q115-18 185 113q-71-12-185-113ZM607 959q106-1 156 107q-89-25-156-107Z" fill="url(#gold)" stroke="#ad7911" stroke-width="5"/>
+ <path d="M625 947q78 22 131 98M622 969q65 29 111 86" stroke="#ffe262" stroke-width="7" fill="none"/>
+ <path d="M795 973q-28-54 39-100q62-42 111 5q39 53-18 115q-56 48-132-20Z" fill="#693b20" stroke="#43281b" stroke-width="7"/>
+ <ellipse cx="860" cy="925" rx="82" ry="53" transform="rotate(-30 860 925)" fill="#fff9e9" stroke="#b7a98a" stroke-width="9"/>
+ <ellipse cx="859" cy="928" rx="48" ry="27" transform="rotate(-30 859 928)" fill="#e4e0ce"/>
+ <g fill="url(#gold)" stroke="#a96916" stroke-width="4"><circle cx="495" cy="1008" r="32"/><circle cx="528" cy="970" r="27"/><circle cx="568" cy="1000" r="29"/><circle cx="522" cy="1044" r="28"/><circle cx="578" cy="1040" r="27"/></g>
+ <!-- foreground foliage -->
+ <use href="#smallleaf" transform="translate(531 1102) rotate(-18) scale(1.6)"/>
+ <use href="#smallleaf" transform="translate(604 1105) rotate(-55) scale(1.45)"/>
+ <use href="#smallleaf" transform="translate(723 1082) rotate(-121) scale(1.2)"/>
+ <!-- cupped hands -->
+ <path d="M599 1153Q407 1177 269 1056Q178 974 133 787q-4-24 14-13q54 31 66 77q77 136 181 170q-71-56-139-150q-25-36-14-49q14-15 41 14q98 115 215 173q75 36 102 144Z" fill="url(#hand)" stroke="#98502b" stroke-width="6"/>
+ <path d="M216 856q63 158 193 239m-147-256q99 130 223 181" fill="none" stroke="#f4b376" stroke-width="12" opacity=".7"/>
+ <path d="M655 1153q192 24 330-97q91-82 136-269q4-24-14-13q-54 31-66 77q-77 136-181 170q71-56 139-150q25-36 14-49q-14-15-41 14q-98 115-215 173q-75 36-102 144Z" fill="url(#hand)" stroke="#98502b" stroke-width="6"/>
+ <path d="M1038 856q-63 158-193 239m147-256q-99 130-223 181" fill="none" stroke="#f4b376" stroke-width="12" opacity=".7"/>
+</g>
+</svg>
