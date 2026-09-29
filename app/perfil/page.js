@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import sql from '../../lib/db';
 import { usuarioLogado } from '../../lib/sessao';
@@ -69,7 +70,9 @@ export default async function PerfilPage() {
             <p>“{msg.texto}”</p>
             <p>📅 Retirada em {msg.data}</p>
             {msg.confirmada ? (
-              <Status confirmada />
+              <Link href={`/conversa/${msg.id}`} className="botao botao-msg">
+                💬 Abrir conversa
+              </Link>
             ) : (
               <form action={aceitarPedido.bind(null, msg.id)}>
                 <button className="botao botao-msg" type="submit">
@@ -93,6 +96,13 @@ export default async function PerfilPage() {
             <p>“{msg.texto}”</p>
             <p>📅 Retirada em {msg.data}</p>
             <Status confirmada={msg.confirmada} />
+            {msg.confirmada && (
+              <p>
+                <Link href={`/conversa/${msg.id}`} className="botao botao-msg">
+                  💬 Abrir conversa
+                </Link>
+              </p>
+            )}
           </div>
         ))}
       </section>

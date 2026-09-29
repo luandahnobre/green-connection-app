@@ -53,6 +53,15 @@ await sql`
     criado_em timestamptz not null default now()
   )
 `;
+await sql`
+  create table if not exists respostas (
+    id serial primary key,
+    mensagem_id integer not null references mensagens(id) on delete cascade,
+    autor_id integer not null references usuarios(id) on delete cascade,
+    texto text not null,
+    criado_em timestamptz not null default now()
+  )
+`;
 
 console.log('Tabelas prontas');
 await sql.end();

@@ -306,3 +306,31 @@ a.botao {
   background: #e3f2e1;
   color: #2e7d32;
 }
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.balao {
+  align-self: flex-start;
+  max-width: 80%;
+  background: #f0f0f0;
+  border-radius: 12px 12px 12px 2px;
+  padding: 8px 12px;
+  white-space: pre-wrap;
+}
+
+.balao.minha {
+  align-self: flex-end;
+  background: #e3f2e1;
+  border-radius: 12px 12px 2px 12px;
+}
+
+.balao-nome {
+  display: block;
+  font-size: 0.75rem;
+  color: #5b6b5b;
+}

@@ -142,7 +142,7 @@ export async function enviarMensagem(formData) {
   redirect('/perfil');
 }
 
-// Só o dono da horta pode aceitar o pedido
+// Só o dono da horta pode aceitar o pedido. Depois de aceito, o chat abre
 export async function aceitarPedido(mensagemId) {
   const usuario = await usuarioLogado();
   if (!usuario) redirect('/login');
@@ -152,5 +152,22 @@ export async function aceitarPedido(mensagemId) {
     where id = ${mensagemId}
       and horta_id in (select id from hortas where usuario_id = ${usuario.id})
   `;
-  revalidatePath('/perfil');
+  redirect(`/conversa/${mensagemId}`);
+}
+
+// Só as duas pessoas da conversa podem responder, e só depois do pedido aceito
+export async function responder(mensagemId, formData) {
+  const usuario = await usuarioLogado();
+  if (!usuario) redirect('/login');
+
+  await sql`
+    insert into respostas (mensagem_id, autor_id, texto)
+    select mensagens.id, ${usuario.id}, ${formData.get('texto').trim()}
+    from mensagens
+    join hortas on hortas.id = mensagens.horta_id
+    where mensagens.id = ${mensagemId}
+      and mensagens.confirmada
+      and (mensagens.remetente_id = ${usuario.id} or hortas.usuario_id = ${usuario.id})
+  `;
+  revalidatePath(`/conversa/${mensagemId}`);
 }
