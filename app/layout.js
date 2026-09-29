@@ -3,6 +3,7 @@ import './globals.css';
 import RegistrarSW from './registrar-sw';
 import { usuarioLogado } from '../lib/sessao';
 import { sair } from './acoes';
+import Avatar from './avatar';
 
 export const metadata = {
   title: 'Conexão Verde',
@@ -31,7 +32,10 @@ export default async function RootLayout({ children }) {
           <nav className="menu">
             {usuario ? (
               <>
-                <span>{usuario.nome}</span>
+                <Link href="/perfil" className="perfil-link">
+                  <Avatar usuario={usuario} />
+                  {usuario.nome}
+                </Link>
                 <form action={sair}>
                   <button className="link-botao" type="submit">
                     Sair

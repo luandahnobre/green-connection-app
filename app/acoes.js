@@ -4,6 +4,16 @@ import bcrypt from 'bcryptjs';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import sql from '../lib/db';
+import { usuarioLogado } from '../lib/sessao';
+
+// Só aceita fotos que foram enviadas para o nosso Vercel Blob
+function fotoValida(url) {
+  try {
+    return new URL(url).hostname.endsWith('.public.blob.vercel-storage.com');
+  } catch {
+    return false;
+  }
+}
 
 async function iniciarSessao(usuarioId) {
   const sessaoId = crypto.randomUUID();
@@ -41,7 +51,7 @@ export async function cadastrar(formData) {
   `;
 
   await iniciarSessao(usuario.id);
-  redirect('/');
+  redirect('/perfil');
 }
 
 export async function entrar(formData) {
@@ -67,4 +77,15 @@ export async function sair() {
     cookieStore.delete('sessao');
   }
   redirect('/login');
+}
+
+export async function salvarFotoPerfil(formData) {
+  const usuario = await usuarioLogado();
+  if (!usuario) redirect('/login');
+
+  const fotoUrl = formData.get('foto_url');
+  if (fotoValida(fotoUrl)) {
+    await sql`update usuarios set foto_url = ${fotoUrl} where id = ${usuario.id}`;
+  }
+  redirect('/');
 }
