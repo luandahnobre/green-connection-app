@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import './globals.css';
 import RegistrarSW from './registrar-sw';
+import { usuarioLogado } from '../lib/sessao';
+import { sair } from './acoes';
 
 export const metadata = {
   title: 'Conexão Verde',
@@ -12,7 +14,9 @@ export const viewport = {
   themeColor: '#2e7d32',
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const usuario = await usuarioLogado();
+
   return (
     <html lang="pt-BR">
       <body>
@@ -24,6 +28,23 @@ export default function RootLayout({ children }) {
             </h1>
           </Link>
           <p>Troque e doe alimentos das hortas do seu bairro</p>
+          <nav className="menu">
+            {usuario ? (
+              <>
+                <span>{usuario.nome}</span>
+                <form action={sair}>
+                  <button className="link-botao" type="submit">
+                    Sair
+                  </button>
+                </form>
+              </>
+            ) : (
+              <>
+                <Link href="/login">Entrar</Link>
+                <Link href="/cadastro">Cadastrar</Link>
+              </>
+            )}
+          </nav>
         </header>
         <main>{children}</main>
       </body>

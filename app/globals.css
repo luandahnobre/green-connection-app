@@ -36,3 +36,78 @@ main {
   margin: 0 auto;
   padding: 16px;
 }
+
+.botao {
+  border: 1px solid #2e7d32;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.botao-msg {
+  background: #2e7d32;
+  color: #fff;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.menu a,
+.link-botao {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.link-botao {
+  background: none;
+  border: none;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.caixa {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.caixa h2 {
+  margin-top: 0;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+
+.formulario input {
+  font: inherit;
+  padding: 8px;
+  border: 1px solid #b7cbb5;
+  border-radius: 8px;
+}
+
+.erro {
+  background: #fdecea;
+  color: #b3261e;
+  border-radius: 8px;
+  padding: 8px;
+}
